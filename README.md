@@ -1,27 +1,26 @@
-Hola, soy Carlos Juárez
+# Carlos Alberto Juarez
+## Desarrollador Junior | Soporte IT | Automatizacion
 
-Tengo 19 años y soy de Tafí Viejo, Tucumán.
+Perfil profesional orientado a la resolucion de problemas tecnicos y desarrollo de software. Residente en Tafi Viejo, Tucuman, Argentina. Enfocado en la optimizacion de procesos mediante el uso de tecnologia y automatizacion.
 
-Recién me recibí de Bachiller en Ciencias y Tecnología y estoy empezando en el mundo de la programación.
+### Habilidades Tecnicas
+- Lenguajes: Python, JavaScript, SQL.
+- Web: HTML5, CSS3.
+- Herramientas: Git, GitHub, Linux, Bash Scripting.
+- Areas de interes: Soporte IT, Ciberseguridad, Desarrollo Backend.
 
-En mis ratos libres armo proyectos personales para practicar y aprender. Ahora estoy buscando mi primer trabajo como programador junior o desarrollador web.
+### Experiencia y Proyectos
+- Soporte tecnico freelance: Resolucion de incidencias de hardware y software para clientes particulares.
+- Automatizacion con scripts: Creacion de herramientas personalizadas para gestion de tareas.
+- SecurePass Generator: Generador de contraseñas seguras desarrollado en Python.
+- TaskFlow: Aplicacion para gestion de tareas y productividad personal.
+- MeteoApp: Consulta de datos climatologicos en tiempo real.
 
-Tecnologías que estoy usando
-Python (básico-intermedio)
-JavaScript, HTML5 y CSS3
-Git y GitHub
+### Certificaciones
+- Certificacion en Python (Enfoque en automatizacion).
+- Certificacion en administracion de sistemas Linux.
 
-Proyectos que estoy armando
-SecurePass Generator
-FinanzasClaras
-TaskFlow
-MeteoApp
-
-Voy subiendo los proyectos de a poco.
-
-Contacto
-LinkedIn: linkedin.com/in/carlos-juarez-dev
-Email: carlos.alberto.juarez.dev@gmail.com
-
-Gracias por visitar mi perfil. 
-Estoy abierto a oportunidades en Tafí Viejo, San Miguel de Tucumán o remoto.
+### Contacto
+- LinkedIn: linkedin.com/in/carlos-juarez-dev
+- Email: carlosjuarezz2006@gmail.com
+- Ubicacion: Tafi Viejo, Tucuman, Argentina (Disponible para trabajo remoto).
