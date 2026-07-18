@@ -11,9 +11,9 @@ Perfil profesional orientado a la resolucion de problemas tecnicos y desarrollo 
 
 ### Experiencia y Proyectos
 - Soporte tecnico freelance: Resolucion de incidencias de hardware y software para clientes particulares.
-- Automatizacion con scripts: Creacion de herramientas personalizadas para gestion de tareas.
-- SystemGuard CLI: Herramienta OOP para monitoreo de recursos del sistema y conectividad (New).
-- SecurePass Generator: Generador de contraseñas seguras desarrollado en Python (Refactored).
+- LogShield: Anonimizador de logs para protección de datos sensibles en soporte técnico (New).
+- SystemGuard CLI: Herramienta OOP para monitoreo de recursos del sistema y conectividad.
+- SecurePass Generator: Generador de contraseñas seguras desarrollado en Python.
 - TaskFlow: Aplicacion para gestion de tareas y productividad personal.
 - MeteoApp: Consulta de datos climatologicos en tiempo real.
 
