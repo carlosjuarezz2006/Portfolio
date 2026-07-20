@@ -11,9 +11,10 @@ Perfil profesional orientado a la resolucion de problemas tecnicos y desarrollo 
 
 ### Experiencia y Proyectos
 - Soporte tecnico freelance: Resolucion de incidencias de hardware y software para clientes particulares.
-- FileVault: Herramienta de cifrado de archivos AES-GCM con derivación de claves PBKDF2 (New).
+- CertSentinel: Monitoreo de certificados SSL/TLS y salud de dominios (New).
+- FileVault: Herramienta de cifrado de archivos AES-GCM con derivación de claves PBKDF2.
 - LogShield: Anonimizador de logs para protección de datos sensibles en soporte técnico.
-- SystemGuard CLI: Herramienta OOP para monitoreo de recursos del sistema y conectividad.
+- SystemGuard CLI: Herramienta modular para monitoreo de recursos del sistema (Updated).
 - SecurePass Generator: Generador de contraseñas seguras desarrollado en Python.
 - TaskFlow: Aplicacion para gestion de tareas y productividad personal.
 - MeteoApp: Consulta de datos climatologicos en tiempo real.
