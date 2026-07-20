@@ -1,19 +1,25 @@
 # SystemGuard CLI
 
-A lightweight, OOP-based system monitoring tool written in Python.
+A modular system monitoring tool built with OOP principles for IT Support automation.
 
 ## Features
-- **Disk Monitoring**: Tracks total, used, and free space.
-- **Network Connectivity**: Checks if the system can reach external DNS servers.
-- **System Load**: Reports 1, 5, and 15-minute load averages.
+- **DiskMonitor**: Tracks storage usage and warns when thresholds are exceeded.
+- **NetworkMonitor**: Verifies connectivity to key infrastructure (e.g., DNS, gateways).
+- **LoadMonitor**: Reports system load averages (Unix-like systems).
+- **MemoryMonitor (New)**: Extracts real-time memory metrics from `/proc/meminfo` on Linux.
 
-## Grok Build Methodology
-This project follows professional standards:
-- **Object-Oriented Programming (OOP)**: Modular design with a base monitor class.
-- **Error Handling**: Graceful handling of socket timeouts and OS-specific limitations.
-- **No External Dependencies**: Built using standard Python libraries.
+## Grok Standards
+- **Extensibility**: Uses an abstract base class (`BaseMonitor`) allowing for easy addition of new system checks.
+- **Robustness**: Includes logging and exception handling for production reliability.
+- **Pure Python**: Minimizes external dependencies by utilizing standard system interfaces.
 
 ## Usage
-```bash
-python3 main.py
+```python
+from monitors import DiskMonitor, MemoryMonitor
+
+disk = DiskMonitor(threshold=85.0)
+print(disk.check())
+
+memory = MemoryMonitor()
+print(memory.check())
 ```
