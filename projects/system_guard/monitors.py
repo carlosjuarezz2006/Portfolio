@@ -3,6 +3,7 @@ import shutil
 import subprocess
 import socket
 import logging
+import platform
 from abc import ABC, abstractmethod
 
 # Configure logging for Grok Standards
@@ -71,3 +72,23 @@ class LoadMonitor(BaseMonitor):
             }
         logger.error("Load average requested on unsupported system")
         return {"error": "Load average not available on this system"}
+
+class MemoryMonitor(BaseMonitor):
+    """Monitors memory usage (Linux/Unix)."""
+    def check(self):
+        if platform.system() == "Linux":
+            try:
+                with open('/proc/meminfo', 'r') as f:
+                    lines = f.readlines()
+                mem_total = int(lines[0].split()[1])
+                mem_free = int(lines[1].split()[1])
+                used = mem_total - mem_free
+                return {
+                    "total_kb": mem_total,
+                    "free_kb": mem_free,
+                    "percent_used": round((used / mem_total) * 100, 2)
+                }
+            except Exception as e:
+                logger.error(f"Memory check failed: {e}")
+                return {"error": str(e)}
+        return {"error": "Memory monitor only supports Linux"}
