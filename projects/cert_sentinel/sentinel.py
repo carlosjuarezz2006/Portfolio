@@ -2,7 +2,7 @@ import ssl
 import socket
 import datetime
 import logging
-from typing import Dict, Optional
+from typing import Dict, Optional, List
 
 # Setup logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -66,11 +66,23 @@ class CertSentinel:
         else:
             return f"🟢 HEALTHY: Certificate expires in {days} days."
 
+    def bulk_check(self, domains: List[str]) -> Dict[str, str]:
+        """
+        Performs health checks on multiple domains.
+        """
+        results = {}
+        for domain in domains:
+            results[domain] = self.check_health(domain)
+        return results
+
 if __name__ == "__main__":
     sentinel = CertSentinel()
     domain = "google.com"
     print(f"Checking {domain}...")
     print(sentinel.check_health(domain))
-    info = sentinel.get_cert_info(domain)
-    if info:
-        print(f"Details: {info}")
+    
+    # Example of new bulk_check feature
+    domains = ["google.com", "github.com", "invalid.test"]
+    print("\nBulk Check Results:")
+    for d, status in sentinel.bulk_check(domains).items():
+        print(f"{d}: {status}")
