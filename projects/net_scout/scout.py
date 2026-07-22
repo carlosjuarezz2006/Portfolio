@@ -1,7 +1,7 @@
 import socket
 import logging
 import concurrent.futures
-from typing import List, Tuple
+from typing import List, Tuple, Dict
 
 # Setup logging for Grok Standards
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -12,6 +12,13 @@ class NetScout:
     NetScout: A fast, multithreaded port scanner for network diagnostics.
     Follows OOP principles and provides professional-grade logging.
     """
+    
+    # Common ports mapping for service identification
+    COMMON_SERVICES = {
+        21: "FTP", 22: "SSH", 23: "Telnet", 25: "SMTP", 
+        53: "DNS", 80: "HTTP", 110: "POP3", 143: "IMAP", 
+        443: "HTTPS", 3306: "MySQL", 5432: "PostgreSQL", 8080: "HTTP-Alt"
+    }
     
     def __init__(self, target: str, timeout: float = 1.0):
         self.target = target
@@ -57,14 +64,22 @@ class NetScout:
             for future in concurrent.futures.as_completed(future_to_port):
                 port, is_open = future.result()
                 if is_open:
+                    service = self.COMMON_SERVICES.get(port, "Unknown")
                     open_ports.append(port)
-                    logger.info(f"Port {port} is OPEN")
+                    logger.info(f"Port {port} ({service}) is OPEN")
         
         return sorted(open_ports)
+
+    def identify_services(self, ports: List[int]) -> Dict[int, str]:
+        """
+        Maps a list of open ports to common services.
+        """
+        return {port: self.COMMON_SERVICES.get(port, "Unknown") for port in ports}
 
 if __name__ == "__main__":
     import sys
     target = sys.argv[1] if len(sys.argv) > 1 else "localhost"
     scout = NetScout(target)
     found = scout.scan_range(20, 1024)
-    print(f"\nScan complete. Open ports: {found}")
+    services = scout.identify_services(found)
+    print(f"\nScan complete. Open services: {services}")
