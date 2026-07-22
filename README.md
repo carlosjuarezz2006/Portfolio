@@ -11,8 +11,9 @@ Perfil profesional orientado a la resolucion de problemas tecnicos y desarrollo 
 
 ### Experiencia y Proyectos
 - Soporte tecnico freelance: Resolucion de incidencias de hardware y software para clientes particulares.
-- NetScout: Escáner de puertos multihilo para diagnóstico de red (New).
-- CertSentinel: Monitoreo de certificados SSL/TLS con soporte para chequeos masivos (Updated).
+- APIFortress: Professional API monitoring and health-check tool (New).
+- NetScout: Multithreaded port scanner with service identification (Updated).
+- CertSentinel: SSL/TLS certificate monitoring with bulk support.
 - FileVault: Herramienta de cifrado de archivos AES-GCM con derivación de claves PBKDF2.
 - LogShield: Anonimizador de logs para protección de datos sensibles en soporte técnico.
 - SystemGuard CLI: Herramienta modular para monitoreo de recursos del sistema.
