@@ -11,8 +11,9 @@ Perfil profesional orientado a la resolucion de problemas tecnicos y desarrollo 
 
 ### Experiencia y Proyectos
 - Soporte tecnico freelance: Resolucion de incidencias de hardware y software para clientes particulares.
-- APIFortress: Professional API monitoring and health-check tool (New).
-- NetScout: Multithreaded port scanner with service identification (Updated).
+- DBSentinel: Lightweight SQLite integrity monitor with cryptographic hashing (New).
+- APIFortress: Professional API monitor with persistent JSON reporting (Updated).
+- NetScout: Multithreaded port scanner with service identification.
 - CertSentinel: SSL/TLS certificate monitoring with bulk support.
 - FileVault: Herramienta de cifrado de archivos AES-GCM con derivación de claves PBKDF2.
 - LogShield: Anonimizador de logs para protección de datos sensibles en soporte técnico.
