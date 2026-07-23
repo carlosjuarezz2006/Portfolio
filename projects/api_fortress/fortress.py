@@ -1,6 +1,7 @@
 import requests
 import time
 import logging
+import json
 from typing import Dict, List, Optional
 from dataclasses import dataclass, asdict
 
@@ -64,6 +65,16 @@ class APIFortress:
             results.append(self.check_endpoint(url))
         return results
 
+    def save_report(self, filename: str = "health_report.json"):
+        """Saves the current monitoring history to a JSON file."""
+        try:
+            report_data = [asdict(h) for h in self.history]
+            with open(filename, 'w') as f:
+                json.dump(report_data, f, indent=4)
+            logger.info(f"Report saved to {filename}")
+        except Exception as e:
+            logger.error(f"Failed to save report: {e}")
+
     def get_summary(self) -> Dict:
         """
         Provides a summary of all monitoring activities in the current session.
@@ -87,5 +98,6 @@ if __name__ == "__main__":
     endpoints = ["https://google.com", "https://api.github.com", "https://invalid.url.test"]
     print("Starting API Monitor...")
     fortress.bulk_monitor(endpoints)
+    fortress.save_report()
     print("\nSession Summary:")
     print(fortress.get_summary())
