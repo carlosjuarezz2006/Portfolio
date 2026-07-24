@@ -11,12 +11,13 @@ Perfil profesional orientado a la resolucion de problemas tecnicos y desarrollo 
 
 ### Experiencia y Proyectos
 - Soporte tecnico freelance: Resolucion de incidencias de hardware y software para clientes particulares.
-- DBSentinel: Lightweight SQLite integrity monitor with cryptographic hashing (New).
-- APIFortress: Professional API monitor with persistent JSON reporting (Updated).
+- WebGlean: Web content extraction, SEO audit, and accessibility validator (New).
+- LogShield: Log anonymizer with PII detection for emails, IPs, phones, cards, and tokens (Updated).
+- DBSentinel: Lightweight SQLite integrity monitor with cryptographic hashing.
+- APIFortress: Professional API monitor with persistent JSON reporting.
 - NetScout: Multithreaded port scanner with service identification.
 - CertSentinel: SSL/TLS certificate monitoring with bulk support.
 - FileVault: Herramienta de cifrado de archivos AES-GCM con derivación de claves PBKDF2.
-- LogShield: Anonimizador de logs para protección de datos sensibles en soporte técnico.
 - SystemGuard CLI: Herramienta modular para monitoreo de recursos del sistema.
 - SecurePass Generator: Generador de contraseñas seguras desarrollado en Python.
 - TaskFlow: Aplicacion para gestion de tareas y productividad personal.
