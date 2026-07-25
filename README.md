@@ -11,15 +11,16 @@ Perfil profesional orientado a la resolucion de problemas tecnicos y desarrollo 
 
 ### Experiencia y Proyectos
 - Soporte tecnico freelance: Resolucion de incidencias de hardware y software para clientes particulares.
-- WebGlean: Web content extraction, SEO audit, and accessibility validator (New).
-- LogShield: Log anonymizer with PII detection for emails, IPs, phones, cards, and tokens (Updated).
+- RepoVigil: GitHub repository health monitor with health scoring, commit activity tracking, and JSON reporting (New).
+- SystemGuard CLI: Modular system monitor with disk, network, load, memory checks, and extended professional mode (Updated).
+- SecurePass Generator: Password generator with entropy calculation, strength evaluation, and passphrase mode (Updated).
+- WebGlean: Web content extraction, SEO audit, and accessibility validator.
+- LogShield: Log anonymizer with PII detection for emails, IPs, phones, cards, and tokens.
 - DBSentinel: Lightweight SQLite integrity monitor with cryptographic hashing.
 - APIFortress: Professional API monitor with persistent JSON reporting.
 - NetScout: Multithreaded port scanner with service identification.
 - CertSentinel: SSL/TLS certificate monitoring with bulk support.
 - FileVault: Herramienta de cifrado de archivos AES-GCM con derivación de claves PBKDF2.
-- SystemGuard CLI: Herramienta modular para monitoreo de recursos del sistema.
-- SecurePass Generator: Generador de contraseñas seguras desarrollado en Python.
 - TaskFlow: Aplicacion para gestion de tareas y productividad personal.
 - MeteoApp: Consulta de datos climatologicos en tiempo real.
 
