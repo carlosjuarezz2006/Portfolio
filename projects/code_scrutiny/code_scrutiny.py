@@ -144,14 +144,6 @@ class ComplexityVisitor(ast.NodeVisitor):
         self.complexity += 1
         self.generic_visit(node)
 
-    def visit_And(self, node: ast.And) -> None:
-        self.complexity += 1
-        self.generic_visit(node)
-
-    def visit_Or(self, node: ast.Or) -> None:
-        self.complexity += 1
-        self.generic_visit(node)
-
     def visit_ExceptHandler(self, node: ast.ExceptHandler) -> None:
         self.complexity += 1
         self.generic_visit(node)

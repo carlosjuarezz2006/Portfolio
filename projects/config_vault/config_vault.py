@@ -456,6 +456,7 @@ class ConfigVault:
             for key, entry in profile.entries.items():
                 if entry.is_secret and not include_secrets:
                     f.write(f"# {key}=[SECRET - use --include-secrets to export]\n")
+                    count += 1
                     continue
                 value = entry.value
                 if entry.is_secret and self._cipher:

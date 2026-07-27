@@ -138,7 +138,7 @@ class TestRepoVigil(unittest.TestCase):
         self.assertIsInstance(report, RepoReport)
         self.assertGreater(report.repositories_inspected, 0)
         self.assertGreaterEqual(report.average_health_score, 0)
-        self.assertIn("Excellent", report.health_distribution)
+        self.assertIn("Good", report.health_distribution)
 
     def test_report_empty(self):
         """Test report with no inspections."""

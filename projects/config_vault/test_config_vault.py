@@ -167,7 +167,10 @@ class TestConfigVaultCore(unittest.TestCase):
     def test_validate_profile_invalid_value(self):
         """Test validation detects invalid value."""
         self.vault.create_profile("dev")
-        self.vault.set_entry("dev", "URL", "not-a-url", validator="url")
+        # Set entry without validator first, then assign validator for profile validation
+        self.vault.set_entry("dev", "URL", "not-a-url")
+        entry = self.vault.get_entry("dev", "URL")
+        entry.validator = "url"
         errors = self.vault.validate_profile("dev")
         self.assertGreater(len(errors), 0)
 
