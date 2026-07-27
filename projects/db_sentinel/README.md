@@ -1,25 +1,45 @@
 # DBSentinel
 
-DBSentinel is a lightweight database integrity monitor for SQLite. It uses cryptographic hashing to detect changes (INSERT, UPDATE, DELETE) in your data without requiring complex database triggers.
+A lightweight SQLite database integrity monitor that tracks data changes using cryptographic hashing, detects INSERT/UPDATE/DELETE operations, and provides structured integrity reports with schema monitoring.
 
 ## Features
-- **Integrity Tracking**: Uses SHA-256 to hash row data and detect tampering or unintended updates.
-- **Auto-Discovery**: Automatically scans all tables in a provided SQLite database file.
-- **Delta Detection**: Identifies specifically which operation (INSERT/UPDATE/DELETE) occurred and on which row.
-- **OOP Architecture**: Built with clean classes and Python dataclasses for structured change records.
+- **Cryptographic Hashing**: SHA-256 row-level hashing for data integrity verification.
+- **Change Detection**: Detects INSERT, UPDATE, and DELETE operations across all tables.
+- **Schema Monitoring**: Caches table schemas (columns, types, primary keys, auto-increment).
+- **Integrity Scoring**: Calculates a 0-100 integrity score based on change history.
+- **Structured Reports**: `IntegrityReport` dataclass with JSON export for compliance.
+- **Change History**: Tracks all changes with previous hash comparison for UPDATE operations.
+- **Multi-Table Support**: Monitors all user tables in the database automatically.
 
 ## Grok Build Standards
-- **Cryptographic Security**: Employs `hashlib.sha256` for robust data fingerprinting.
-- **Professional Documentation**: Full type hinting and descriptive docstrings.
-- **Reliability**: Graceful handling of SQLite operational errors.
+- **Cryptographic Security**: SHA-256 hashing (standard library `hashlib`) for data integrity verification.
+- **OOP Architecture**: Clean separation with `DBSentinel`, `ChangeRecord`, `IntegrityReport`, and `TableSchema` classes.
+- **Documentation**: Full type hints, comprehensive docstrings, structured logging, and 20+ unit tests.
 
 ## Usage
 ```python
 from db_sentinel import DBSentinel
 
-sentinel = DBSentinel("my_app.db")
-# Run periodically or as a daemon
-changes = sentinel.detect_changes()
+monitor = DBSentinel("my_database.db")
+
+# Detect changes since last scan
+changes = monitor.detect_changes()
 for change in changes:
-    print(f"[{change.operation}] Table: {change.table_name}, Row ID: {change.row_id}")
+    print(f"{change.operation} on {change.table_name} (id={change.row_id})")
+
+# Get integrity report
+report = monitor.get_integrity_report()
+print(f"Integrity score: {report.integrity_score}/100")
+
+# Get schema information
+schema = monitor.get_table_schema("users")
+print(f"Table '{schema.name}' has {len(schema.columns)} columns")
+
+# Save report
+monitor.save_report("db_report.json")
+```
+
+## CLI Usage
+```bash
+python db_sentinel.py
 ```
