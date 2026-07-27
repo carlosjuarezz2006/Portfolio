@@ -1,28 +1,65 @@
 # RepoVigil
 
-RepoVigil is a GitHub repository health and activity monitoring tool. It fetches repository metadata, calculates a composite health score, and tracks commit activity for any public GitHub repository.
+A GitHub repository health monitor with health scoring, commit activity tracking, contributor metrics, and persistent JSON reporting.
 
 ## Features
-- **Repository Health Scoring**: Calculates a 0-100 health score based on stars, recency of pushes, open issues, documentation, license, and description quality.
-- **Commit Activity Tracking**: Fetches total commits, recent commits (last 30 days), contributor count, and primary contributor.
-- **User Repository Inspection**: Inspect all repositories for a given GitHub user with a single call.
-- **Structured JSON Reports**: Save all inspection data to a timestamped JSON report.
-- **Summary Statistics**: Get aggregate health distribution, average scores, and top repositories.
+- **Health Scoring**: Multi-factor scoring algorithm (0-100) based on activity, popularity, issue management, documentation, and feature completeness.
+- **Commit Activity Tracking**: Analyzes recent commits, total commits, active contributors, and primary contributor.
+- **User Repository Inspection**: Scan all repositories for a GitHub user and sort by health score.
+- **Persistent Storage**: Automatic load/save of health and commit history to disk.
+- **Structured Reports**: `RepoReport` dataclass with aggregate statistics and JSON export.
+- **Rate Limit Handling**: Graceful degradation when GitHub API rate limits are hit.
+- **Comprehensive Fields**: Tracks 30+ repository attributes including discussions, archival status, fork status, default branch, and topics.
 
 ## Grok Build Standards
-- **Cryptographic Security**: No secrets in code — GitHub token passed via env var or constructor parameter.
-- **OOP Architecture**: Clean separation with `RepoHealth` and `CommitActivity` dataclasses, and `RepoVigil` class with single-responsibility private methods.
-- **Professional Documentation**: Full type hinting, comprehensive docstrings, structured logging, and error handling for all API calls.
+- **OOP Architecture**: Clean separation with `RepoVigil`, `RepoHealth`, `CommitActivity`, and `RepoReport` classes.
+- **Security**: Uses `requests` library with configurable timeouts, error handling, and optional token authentication.
+- **Documentation**: Full type hints, comprehensive docstrings, structured logging, and 20+ unit tests.
 
 ## Usage
 ```python
 from repo_vigil import RepoVigil
 
 vigil = RepoVigil()
+
+# Inspect a single repository
 health = vigil.inspect_repo("carlosjuarezz2006/Portfolio")
 print(f"Health Score: {health.score}/100 ({health.health_status})")
+print(f"Stars: {health.stars} | Forks: {health.forks}")
+print(f"Language: {health.language}")
+print(f"Last push: {health.days_since_last_push} days ago")
 
-# Inspect all user repos
-repos = vigil.inspect_user_repos("carlosjuarezz2006")
-print(f"Found {len(repos)} repositories")
+# Get commit activity
+activity = vigil.get_commit_activity("carlosjuarezz2006/Portfolio")
+print(f"Recent commits: {activity.recent_commits_last_30d}")
+print(f"Contributors: {activity.active_contributors}")
+
+# Inspect all user repositories
+repos = vigil.inspect_user_repos("carlosjuarezz2006", max_repos=10)
+
+# Get structured report
+report = vigil.get_report()
+print(f"Avg Score: {report.average_health_score}")
+print(f"Distribution: {report.health_distribution}")
+
+# Save report
+vigil.save_report("health_report.json")
+
+# Get summary
+print(vigil.get_summary())
 ```
+
+## CLI Usage
+```bash
+python repo_vigil.py
+```
+
+## Health Score Factors
+| Factor | Max Points | Description |
+|--------|-----------|-------------|
+| Activity | 40 | Recency of last push (recent = higher) |
+| Stars | 10 | Popularity based on stargazers |
+| Issues | 20 | Low open issue count = higher score |
+| Documentation | 10 | Description, wiki, projects, discussions |
+| Features | 20 | Issues enabled, topics, license |
+| **Total** | **100** | |
