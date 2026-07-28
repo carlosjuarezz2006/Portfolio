@@ -11,18 +11,19 @@ Perfil profesional orientado a la resolucion de problemas tecnicos y desarrollo 
 
 ### Experiencia y Proyectos
 - Soporte tecnico freelance: Resolucion de incidencias de hardware y software para clientes particulares.
-- **ConfigVault**: Secure configuration management with Fernet encryption, multi-profile support, template rendering, and validation rules (New).
+- **HashChecker**: File integrity verification with SHA-256/SHA-512/BLAKE2b, recursive scanning, checksum generation, and batch verification (New).
+- **ConfigVault**: Secure configuration management with Fernet encryption, multi-profile support, template rendering, and validation rules.
+- **CertSentinel**: SSL/TLS certificate monitoring with CertInfo/CertReport, concurrent bulk checking, configurable thresholds, and serial number tracking (Updated).
 - **CodeScrutiny**: Python code quality analyzer with AST-based metrics, cyclomatic complexity, and rule violation detection.
 - **FileVault**: AES-256-GCM file encryption with streaming, batch ops, and base64 mode.
 - **NetScout**: Fast port scanner with banner grabbing, 4 scan modes, and structured JSON reporting.
 - **WebGlean**: Web content extraction, SEO audit, and accessibility validator with link analysis.
-- **RepoVigil**: GitHub repository health monitor with health scoring, commit activity, report generation, and persistent storage (Updated).
-- **LogShield**: Log anonymizer with 9 PII patterns (IPv6, URL, MAC, file paths), streaming mode, and structured reporting (Updated).
-- **DBSentinel**: SQLite integrity monitor with schema monitoring, integrity scoring, and IntegrityReport (Updated).
-- **APIFortress**: API monitor with concurrent monitoring, retry logic, content validation, and MonitorReport (Updated).
+- **RepoVigil**: GitHub repository health monitor with health scoring, commit activity, report generation, and persistent storage.
+- **LogShield**: Log anonymizer with 9 PII patterns (IPv6, URL, MAC, file paths), streaming mode, and structured reporting.
+- **DBSentinel**: SQLite integrity monitor with schema monitoring, integrity scoring, and IntegrityReport.
+- **APIFortress**: API monitor with concurrent monitoring, retry logic, content validation, and MonitorReport.
 - **SystemGuard CLI**: Modular system monitor with disk, network, load, memory checks, and extended professional mode.
 - **SecurePass Generator**: Password generator with entropy calculation, strength evaluation, and passphrase mode.
-- **CertSentinel**: SSL/TLS certificate monitoring with bulk support.
 - **TaskFlow**: Aplicacion para gestion de tareas y productividad personal.
 - **MeteoApp**: Consulta de datos climatologicos en tiempo real.
 
